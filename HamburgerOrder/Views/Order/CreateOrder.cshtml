@@ -1,0 +1,56 @@
+﻿@model Order
+
+<h2>Create Order</h2>
+
+<form asp-action="CreateOrder" method="post">
+
+    <input type="hidden" asp-for="Id" value="" />
+    <div class="form-group mb-3">
+        <label asp-for="SelectedMenu.Id" class="control-label col-md-2 h5">Menu:</label>
+        <div class="col-md-10">
+            <select asp-for="SelectedMenu.Id" asp-items="@(new SelectList(ViewBag.Menus, "Value", "Text", Model.SelectedMenu.Id))" class="form-control">
+                <option value="">Select</option>
+            </select>
+            <span asp-validation-for="SelectedMenu.Id" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="control-label col-md-2 h5">Extras:</label>
+        <div class="col-md-10 d-flex">
+            @foreach (var extra in ViewBag.Extras)
+            {
+                <div class="checkbox me-2">
+                    <label>
+                        <input type="checkbox" value="@extra.Id" name="extras" /> @extra.Name
+                    </label>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Size" class="control-label col-md-2 h5">Size:</label>
+        <div class="col-md-10">
+            <select asp-for="Size" asp-items="@(new SelectList(Enum.GetValues(typeof(SizeEnum)).Cast<SizeEnum>().Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString() }), "Value", "Text", Model.Size))" class="form-control">
+                <option value="">Select</option>
+            </select>
+            <span asp-validation-for="Size" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Amount" class="control-label col-md-2 h5">Amount:</label>
+        <div class="col-md-10">
+            <input asp-for="Amount" class="form-control" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-success">Order</button>
+        </div>
+    </div>
+</form>
+

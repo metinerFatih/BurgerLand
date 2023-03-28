@@ -1,0 +1,43 @@
+﻿@model ProductsViewModel
+
+<h1>Products</h1>
+<div class="container">
+    <table class="table table-bordered">
+        <h2>Menus</h2>
+        <thead>
+            <tr>
+                <th>Menu Name</th>
+                <th>Menu Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Menus)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <h2>Extras</h2>
+        <thead>
+            <tr>
+                <th>Extra Name</th>
+                <th>Extra Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Extras)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-primary" asp-action="CreateOrder">Create Order</a>
+</div>
+

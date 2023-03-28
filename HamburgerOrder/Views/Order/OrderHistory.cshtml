@@ -1,0 +1,39 @@
+﻿@model List<Order>
+
+<h3 class="mt-4 text-center">Order History</h3>
+
+
+@if (ViewBag.Order != null)
+{
+    <h5 class="text-danger">@ViewBag.Order</h5>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Menu</th>
+                <th>Size</th>
+                <th>Amount</th>
+                <th>Total Price</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="align-middle">@item.SelectedMenu.Name</td>
+                    <td class="align-middle">@item.Size</td>
+                    <td class="align-middle">@item.Amount</td>
+                    <td class="align-middle">@item.TotalPrice</td>
+                    <td class="align-middle">@item.OrderDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <a asp-action="CreateOrder" asp-controller="Order" class="btn btn-success fw-bold">Create a New Order</a>
+    </div>
+}

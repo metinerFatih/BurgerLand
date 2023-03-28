@@ -1,0 +1,16 @@
+﻿@model ExtraViewModel
+
+    <h1>Update Extra</h1>
+    <form asp-controller="Dashboard" asp-action="UpdateExtra" method="post" enctype="multipart/form-data">
+        <div class="mb-2">
+            <label asp-for="Name">Extra Name</label>
+            <input asp-for="Name" class="form-control" type="text" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-2">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" class="form-control" type="text" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <button class="btn btn-warning">Update Extra</button>
+    </form>

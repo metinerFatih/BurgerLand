@@ -1,0 +1,17 @@
+﻿@model MenuViewModel
+
+<h1>Update Menu</h1>
+<form asp-controller="Dashboard" asp-action="UpdateMenu" method="post" enctype="multipart/form-data">
+    <div class="mb-2">
+        <label asp-for="Name">Menu Name</label>
+        <input asp-for="Name" class="form-control" type="text" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" type="text" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-warning">Update Menu</button>
+</form>

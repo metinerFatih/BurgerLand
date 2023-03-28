@@ -1,0 +1,23 @@
+﻿@model List<Order>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Order</th>
+            <th>Paid Price</th>
+            <th>Order Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.User.Email</td>
+                <td>@item.SelectedMenu.Name</td>
+                <td>@item.TotalPrice.ToString("C2")</td>
+                <td>@item.OrderDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

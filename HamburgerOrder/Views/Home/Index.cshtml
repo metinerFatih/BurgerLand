@@ -1,0 +1,23 @@
+﻿@model ProductsViewModel
+
+<h1 class="text-center">Welcome to BurgerLand</h1>
+<div class="container">
+    <table class="table table-bordered">
+        <h2>Menus</h2>
+        <thead>
+            <tr>
+                <th>Menu Name</th>
+                <th>Menu Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Menus)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

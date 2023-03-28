@@ -1,0 +1,57 @@
+﻿@model ProductsViewModel
+
+<h1>Products</h1>
+<div class="container">
+    <table class="table table-bordered">
+        <h2>Menus</h2>
+        <thead>
+            <tr>
+                <th>Menu Id</th>
+                <th>Menu Name</th>
+                <th>Menu Price</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Menus)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td>
+                        <a class="btn btn-success" asp-action="UpdateMenu" asp-route-id="@item.Id">Update</a>
+                        <a class="btn btn-danger" asp-action="DeleteMenu" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-success" asp-action="AddMenu">Add New Menu</a>
+    <table class="table table-bordered">
+        <h2>Extras</h2>
+        <thead>
+            <tr>
+                <th>Extra Id</th>
+                <th>Extra Name</th>
+                <th>Extra Price</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Extras)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td>
+                        <a class="btn btn-success" asp-action="UpdateExtra" asp-route-id="@item.Id">Update</a>
+                        <a class="btn btn-danger" asp-action="DeleteExtra" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-success" asp-action="AddExtra">Add New Extra</a>
+</div>
